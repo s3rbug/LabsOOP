@@ -22,17 +22,17 @@ public class Main {
     public static void main(String[] args) {
         final int C = 0;
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter A (int): ");
+        System.out.print("Enter A: ");
         final int a = in.nextInt();
-        System.out.print("Enter B (int): ");
+        System.out.print("Enter B: ");
         if (checkIsNextWrong(in))
             return;
         final int b = in.nextInt();
-        System.out.print("Enter N (int): ");
+        System.out.print("Enter N: ");
         if (checkIsNextWrong(in))
             return;
         final int n = in.nextInt();
-        System.out.print("Enter M (int): ");
+        System.out.print("Enter M: ");
         if (checkIsNextWrong(in))
             return;
         final int m = in.nextInt();

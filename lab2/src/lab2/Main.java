@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 /**
  * Номер заліковки - 0102
- * C5 = 2 => C = A + B
- * C7 = 4 => тип елементів long
- * C11 = 3 => сума найбільших елементів кожного рядка матриці
+ * C5 = 2; => C = A + B
+ * C7 = 4; => тип елементів long
+ * C11 = 3; => сума найбільших елементів кожного рядка матриці
  */
 
 public class Main {
@@ -20,8 +20,7 @@ public class Main {
         return false;
     }
 
-    static long[][] enterArray(Scanner in, int n, int m) {
-        long[][] a = new long[n][m];
+    static void enterArray(Scanner in, int n, int m, long[][] a) {
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
                 a[i][j] = in.nextLong();
@@ -29,13 +28,12 @@ public class Main {
             }
             System.out.println();
         }
-        return a;
     }
 
     static long[][] sumArrays(long[][] a, long[][] b, int n, int m){
         long[][] c = new long[n][m];
-        for(int i = 0; i < n; ++i){
-            for(int j = 0; j < m; ++j){
+        for(int i = 0; i < a.length; ++i){
+            for(int j = 0; j < a[i].length; ++j){
                 c[i][j] = a[i][j] + b[i][j];
                 System.out.print(c[i][j] + " ");
             }
@@ -52,7 +50,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        long[][] a, b;
         try {
             File inputFile = new File("lab2/input.txt");
             Scanner in = new Scanner(inputFile);
@@ -63,9 +60,11 @@ public class Main {
                 return;
             int m = in.nextInt();
             System.out.println("Матриця А: ");
-            a = enterArray(in, n, m);
+            long[][] a = new long[n][m];
+            enterArray(in, n, m, a);
             System.out.println("Матриця B: ");
-            b = enterArray(in, n, m);
+            long[][] b = new long[n][m];
+            enterArray(in, n, m, b);
             System.out.println("Матриця A + B");
             long[][] c = sumArrays(a, b, n, m);
             long sum = 0;
@@ -77,7 +76,6 @@ public class Main {
         } catch (FileNotFoundException e) {
             System.out.println("Файл не знайдено");
             e.printStackTrace();
-            return;
         }
     }
 }

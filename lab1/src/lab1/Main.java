@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 /**
  * Номер заліковки - 0102
- * C2 = 0 O1 = "+"
- * C3 = 0 C = 0
- * C5 = 2 O2 = "%"
- * C7 = 4 тип індексів i та j = char
+ * C2 = 0; => O1 = "+"
+ * C3 = 0; => C = 0
+ * C5 = 2; => O2 = "%"
+ * C7 = 4; => тип індексів i та j = char
  */
 
 public class Main {
@@ -41,19 +41,16 @@ public class Main {
             System.out.println("Value can not be calculated. Char can not be negative");
             return;
         }
-        if (a > n || b > m) {
-            System.out.println("S = 0.0");
-            return;
-        }
         if ((a + C <= 0 && n + C >= 0) || b == 0) {
             System.out.println("Value can not be calculated. Dividing by zero found");
             return;
         }
-        for (char i = (char) a; i < n; ++i) {
-            for (char j = (char) b; j < m; ++j) {
-                S += (double) i % (double) j / ((double) i + C);
+        for (char i = (char) a; i <= (char)n; ++i) {
+            for (char j = (char) b; j <= (char)m; ++j) {
+                S += i % j / ((double) i + C);
             }
         }
         System.out.println("S = " + S);
+        in.close();
     }
 }

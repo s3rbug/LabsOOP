@@ -16,7 +16,8 @@ public class Main {
         return res;
     }
     static StringBuilder[][] splitByWords(StringBuilder str){
-        StringBuilder[] sentences = toStringBuilder(str.toString().replaceAll("[,:-]+", "").trim().replaceAll(" +", " ").split("[!?.]+"));
+        StringBuilder[] sentences = toStringBuilder(str.toString().replaceAll("[,:-]+", "")
+                .trim().replaceAll(" +", " ").split("[!?.]+"));
 
         StringBuilder[][] words = new StringBuilder[sentences.length][];
         for(int i = 0; i < sentences.length; ++i){
@@ -37,7 +38,7 @@ public class Main {
             for(int j = 1; j < words[i].length; ++j) {
                 if(words[i][j].isEmpty())
                     continue;
-                if(words[i][j].compareTo(words[i][j - 1]) == 0){
+                if(words[i][j].equals(words[i][j - 1])){
                     ++count;
                 }
                 else{

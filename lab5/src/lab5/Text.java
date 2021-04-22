@@ -1,25 +1,29 @@
 package lab5;
+
 import java.util.ArrayList;
 
 public class Text {
     private final Sentence[] text;
-    Text(StringBuilder string){
+
+    Text(StringBuilder string) {
         String str = string.toString().replaceAll("\\s{2,}", " ").trim();
         String[] split = str.split("(?<=\\.)|(?<=!)|(?<=\\?)");
         text = new Sentence[split.length];
-        for(int i = 0; i < split.length; ++i){
+        for (int i = 0; i < split.length; ++i) {
             text[i] = new Sentence(split[i]);
         }
     }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for(Sentence sentence: text){
+        for (Sentence sentence : text) {
             result.append(sentence.toString());
         }
         return result.toString();
     }
-    void printMaxCountWithSameWords(){
+
+    void printMaxCountWithSameWords() {
         int maxCount = 0;
         String maxString = "";
         ArrayList<Integer> maxListOfOccurring = new ArrayList<>();
@@ -34,7 +38,7 @@ public class Text {
                         listOfOccurring.add(j);
                     }
                 }
-                if(count > maxCount){
+                if (count > maxCount) {
                     maxCount = count;
                     maxString = wordToCheck;
                     maxListOfOccurring = listOfOccurring;
@@ -44,9 +48,9 @@ public class Text {
         System.out.print("Найбільша кількість речень тексту, в яких є однакові слова: " + maxCount +
                 "\nСлово, що зустрічається у найбільшій кількості речень: " + maxString +
                 "\nНомери речень, у яких воно зустрічається: ");
-        for(int i = 0; i < maxListOfOccurring.size(); ++i){
+        for (int i = 0; i < maxListOfOccurring.size(); ++i) {
             System.out.print(maxListOfOccurring.get(i) + 1);
-            if(i != maxListOfOccurring.size() - 1){
+            if (i != maxListOfOccurring.size() - 1) {
                 System.out.print(", ");
             }
         }

@@ -9,39 +9,33 @@ public class Punctuation {
         WRONG
     }
 
-    public static PunctuationType getTypeOfChar(char c){
-        if(c == ','){
+    public static PunctuationType getTypeOfChar(char c) {
+        if (c == ',') {
             return PunctuationType.COMMA;
-        }
-        else if (c == '.'){
+        } else if (c == '.') {
             return PunctuationType.POINT;
-        }
-        else if (c == '!'){
+        } else if (c == '!') {
             return PunctuationType.EXCLAMATION;
-        }
-        else if (c == '?'){
+        } else if (c == '?') {
             return PunctuationType.QUESTION;
         }
         return PunctuationType.WRONG;
     }
 
-    public static char getCharByType(PunctuationType type){
-        if(type == PunctuationType.COMMA){
+    public static char getCharByType(PunctuationType type) {
+        if (type == PunctuationType.COMMA) {
             return ',';
-        }
-        else if(type == PunctuationType.POINT){
+        } else if (type == PunctuationType.POINT) {
             return '.';
-        }
-        else if(type == PunctuationType.EXCLAMATION){
+        } else if (type == PunctuationType.EXCLAMATION) {
             return '!';
-        }
-        else if(type == PunctuationType.QUESTION){
+        } else if (type == PunctuationType.QUESTION) {
             return '?';
         }
         return '\0';
     }
 
-    public static boolean isEndOfTheSentence(char c){
+    public static boolean isEndOfTheSentence(char c) {
         return c == '.' || c == '!' || c == '?';
     }
 }

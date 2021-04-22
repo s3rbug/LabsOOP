@@ -33,7 +33,7 @@ public class Word {
     @Override
     public String toString() {
         String result = getWithoutPunctuation();
-        if(hasPunctuation){
+        if (hasPunctuation) {
             result += Punctuation.getCharByType(punctuation);
         }
         return result + " ";

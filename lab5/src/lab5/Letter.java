@@ -7,7 +7,7 @@ public class Letter {
         this.letter = letter;
     }
 
-    char get(){
+    char get() {
         return this.letter;
     }
 }
